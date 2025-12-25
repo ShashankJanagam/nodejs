@@ -69,6 +69,7 @@ dotenv.config()
 
 const app=express()
 const server=http.createServer(app)
+app.set("trust proxy", 1);
 
 // -----------------------------------------------------
 const SQLiteStore =connectSqlite3(session)
@@ -109,7 +110,7 @@ app.use(sessionMiddleware)
 app.use("/auth",authRoutes)
 
 app.use(express.static("public"))
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5500;
 initWebSocket(server,sessionMiddleware)
 server.listen(PORT,()=>{
   console.log("server running at http://localhost:5500")
