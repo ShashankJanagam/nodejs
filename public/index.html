@@ -38,13 +38,13 @@
       
     }
      async function register(){
-      const res= await fetch("https://nodejs-eng5.onrender.com/auth/register",{
-        method:"POST",
-        credentials:"include",
-        headers:{"Content/Type":"application/json"},
-        body:JSON.stringify({
-          email:email.value,
-          password:password.value,
+      const res = await fetch("https://nodejs-eng5.onrender.com/auth/register", {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email.value,
+          password: password.value
         })
 
       });
@@ -60,7 +60,7 @@
     }
 
     function connectWS() {
-      socket = new WebSocket("wss://nodejs-eng5.onrender.com:5500");
+      socket = new WebSocket("wss://nodejs-eng5.onrender.com");
 
       socket.onmessage = e => {
         const d = JSON.parse(e.data);
