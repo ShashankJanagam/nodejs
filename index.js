@@ -95,6 +95,7 @@ export const sessionMiddleware=session({
 app.use(cors({
   origin: [
     "http://localhost:5500",
+    "https://nodejs-umber-five.vercel.app/"
 
   ],
   credentials: true
