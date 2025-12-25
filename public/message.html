@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+  <h1>WebSocket Chat</h1>
+
+  <h3>Online Users</h3>
+  <div id="online"></div>
+
+  <h3>Video Call</h3>
+  <video id="localVideo" autoplay playsinline muted></video>
+  <video id="remoteVideo" autoplay playsinline></video>
+
+  <br>
+
+  <input id="peer" placeholder="Enter user email">
+  <button onclick="startVideoCall()">Start Call</button>
+  <button onclick="endCall()">End Call</button>
+  <h3 id="status"></h3>
+
+
+  <script src="script.js"> 
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+{
+   "name": "nodejs",
+   "version": "1.0.0",
+   "type": "module",
+   "main": "index.js",
+   "scripts": {
+      "start": "node index.js"
+   },
+   "keywords": [],
+   "author": "",
+   "license": "ISC",
+   "description": "",
+   "dependencies": {
+      "bcryptjs": "^3.0.3",
+      "connect-sqlite3": "^0.9.16",
+      "cookie-parser": "^1.4.7",
+      "cors": "^2.8.5",
+      "dotenv": "^17.2.3",
+      "express": "^5.2.1",
+      "express-session": "^1.18.2",
+      "jsonwebtoken": "^9.0.3",
+      "sqlite3": "^5.1.7",
+      "ws": "^8.18.3"
+   }
+}
