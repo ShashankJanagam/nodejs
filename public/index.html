@@ -12,7 +12,7 @@
     let socket;
 
     async function login() {
-      const res = await fetch("http://localhost:5500/auth/login", {
+      const res = await fetch("https://nodejs-eng5.onrender.com/auth/login", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
@@ -33,7 +33,7 @@
     }
 
     function connectWS() {
-      socket = new WebSocket("ws://localhost:5500");
+      socket = new WebSocket("wss://nodejs-eng5.onrender.com:5500");
 
       socket.onmessage = e => {
         const d = JSON.parse(e.data);

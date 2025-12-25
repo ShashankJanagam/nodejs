@@ -4,7 +4,7 @@ let localStream=null
 
 window.onload=()=> {
 
-      socket = new WebSocket("ws://localhost:5500");
+      socket = new WebSocket("wss://nodejs-eng5.onrender.com:5500");
 
       socket.onopen = () => {
         console.log("WebSocket connected");

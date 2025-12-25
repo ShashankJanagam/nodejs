@@ -108,9 +108,9 @@ app.use(sessionMiddleware)
 app.use("/auth",authRoutes)
 
 app.use(express.static("public"))
-
+const PORT = process.env.PORT;
 initWebSocket(server,sessionMiddleware)
-server.listen(5500,()=>{
+server.listen(PORT,()=>{
   console.log("server running at http://localhost:5500")
 })
 
