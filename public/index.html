@@ -6,6 +6,10 @@
   <input id="email" placeholder="Email">
   <input id="password" type="password" placeholder="Password">
   <button onclick="login()">Login</button>
+  <button onclick="register()">Register</button>
+
+
+
 
  
   <script>
@@ -22,6 +26,8 @@
         })
       });
 
+
+
       const data = await res.json();
 
       if (res.ok){
@@ -29,6 +35,27 @@
       }else{
         alert(data.message)
       }
+      
+    }
+     async function register(){
+      const res= await fetch("https://nodejs-eng5.onrender.com/auth/register",{
+        method:"POST",
+        credentials:"include",
+        headers:{"Content/Type":"application/json"},
+        body:JSON.stringify({
+          email:email.value,
+          password:password.value,
+        })
+
+      });
+      const data=await res.json()
+      if(res.ok){
+        alert("Registered successfully login now");
+
+      }else{
+        alert(data.message)
+      }
+      
       
     }
 
@@ -47,6 +74,7 @@
       }));
       msg.value = "";
     }
+   
   </script>
 </body>
 </html>
