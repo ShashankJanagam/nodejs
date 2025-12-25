@@ -1,18 +1,17 @@
 let socket = null;
 let pc=null
 let localStream=null
+let socketReady = false;
 
 window.onload=()=> {
 
-      socket = new WebSocket("wss://nodejs-eng5.onrender.com:5500");
+socket = new WebSocket("wss://nodejs-eng5.onrender.com");
 
-      socket.onopen = () => {
-        console.log("WebSocket connected");
+   socket.onopen = () => {
+  console.log("WebSocket connected");
+  socketReady = true;
+};
 
-        const div = document.createElement("div");
-
-
-      };
 
       socket.onmessage = async (e) => {
         const text = e.data instanceof Blob ? await e.data.text() : e.data;
@@ -101,10 +100,20 @@ window.onload=()=> {
 }
 
 
-function startVideoCall(){
-        const to=document.getElementById("peer").value.trim()
-        socket.send(JSON.stringify({type:"video-call-request",to}))
+function startVideoCall() {
+  if (!socketReady) {
+    alert("Please wait, connecting to server...");
+    return;
+  }
+
+  const to = document.getElementById("peer").value.trim();
+
+  socket.send(JSON.stringify({
+    type: "video-call-request",
+    to
+  }));
 }
+
 
 async function createPeerConnection(){
     pc=new RTCPeerConnection({
